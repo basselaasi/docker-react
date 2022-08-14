@@ -1,0 +1,8 @@
+SUDO: REQUIRED
+services: 
+  - docker
+before_install:
+  - docker build -t basselaa/docker-react -f Dockerfile.dev .
+
+script: 
+ - docker run -t basselaa/docker-react npm run test -- --coverage
